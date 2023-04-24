@@ -1,0 +1,36 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteProducts = exports.putProducts = exports.postProducts = exports.getProduct = exports.getProducts = void 0;
+const product_1 = require("../models/product");
+const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const listProduct = yield product_1.Product.findAll();
+    try {
+        res.json(listProduct);
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+});
+exports.getProducts = getProducts;
+const getProduct = (req, res) => {
+};
+exports.getProduct = getProduct;
+const postProducts = (req, res) => {
+};
+exports.postProducts = postProducts;
+const putProducts = (req, res) => {
+};
+exports.putProducts = putProducts;
+const deleteProducts = (req, res) => {
+};
+exports.deleteProducts = deleteProducts;
+//# sourceMappingURL=product.js.map
