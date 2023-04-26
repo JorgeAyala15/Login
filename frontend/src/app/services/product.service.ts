@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../interfaces/product';
-interface Response{
-  product:Product[];
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +15,11 @@ export class ProductService {
     this.myAppUrl = 'http://localhost:8000';
     this.myApiUrl = '/api/products';
   }
-  getProducts(): Observable<Response> {
+
+  getProducts(): Observable<Product[]> {
     const token = 'Bearer '+localStorage.getItem('token');
-    console.log('estoy en el get'+token);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    console.log('estoy en el get 2'+token);
-    return this.http.get<Response>(`${this.myAppUrl}${this.myApiUrl}`,{headers:headers});
+     return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}`,{headers:headers});
   }
   getProduct(id: number){
     return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${id}`);

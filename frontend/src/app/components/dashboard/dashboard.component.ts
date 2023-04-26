@@ -20,24 +20,23 @@ export class DashboardComponent implements OnInit {
   getProducts() {
     this._productService.getProducts().subscribe({
       next: (res) => {
-       
-        console.log('estoy en el dashboard '+res);
-        this.listProduct = res.product;
+        this.listProduct = res;
       },
-      error: (err) => {console.log(err)
+      error: (err) => {
+        console.log(err)
       }
     })
   }
-  getProduct(){
-    
-  }
-  postProduct(){
+  getProduct() {
 
   }
-  putProduct(){
+  postProduct() {
 
   }
-  deleteProduct(){
-    
+  putProduct() {
+
+  }
+  deleteProduct() {
+
   }
 }

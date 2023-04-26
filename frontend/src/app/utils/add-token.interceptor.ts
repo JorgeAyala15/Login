@@ -20,11 +20,8 @@ export class AddTokenInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('token');
     if ( token ) {
       request = request.clone({ setHeaders: { Authorization: `Bearer ${token}` } });
-      console.log('aver ' + request.url)
-      console.log(request);
     }
-    return next.handle(request);
-    /*return next.handle(request).pipe(
+    return next.handle(request).pipe(
       catchError(
         (error: HttpErrorResponse)=>{
           if(error.status === 401){
@@ -34,6 +31,6 @@ export class AddTokenInterceptor implements HttpInterceptor {
           return throwError(()=> error);
         }
         )
-      );*/
+      );
   }
 }
